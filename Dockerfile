@@ -42,6 +42,6 @@ RUN apk add --no-cache ca-certificates tzdata
 
 COPY --from=builder2 /build/one-api /
 
-EXPOSE 3000
+CMD ["sh", "-c", "./new-api --host 0.0.0.0 --port ${PORT}"]
 WORKDIR /data
 ENTRYPOINT ["/one-api"]
